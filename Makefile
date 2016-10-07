@@ -8,7 +8,9 @@ SRC = 	src/main.c \
 		src/creation/wall.c \
 		src/creation/perso.c \
 		src/creation/free.c \
-		src/event/event.c
+		src/event/keyboard.c \
+		src/event/event.c \
+		src/animation/movement.c
 		
 LDFLAGS=-lSDL2
 
