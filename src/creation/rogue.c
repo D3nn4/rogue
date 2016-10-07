@@ -1,8 +1,10 @@
 #include <SDL2/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "creation.h"
+#include "event.h"
 void exitAll (s_SDL *data)
 {
 	SDL_DestroyWindow(data->window);
@@ -33,9 +35,11 @@ void rogue()
     }
     s_SDL *SDL_data = createSSDL();
     SDL_Event event;
-  
-
-
-    SDL_Delay(1000);
-    exitAll(SDL_data);	
+    SDL_RenderClear(SDL_data->renderer);
+   	createBg(SDL_data);
+   	//createPerso(SDL_data);
+   	SDL_RenderPresent(SDL_data->renderer);
+    while (true)
+    	manageEvent(&event, SDL_data);	
+	exitAll(SDL_data);	
 }

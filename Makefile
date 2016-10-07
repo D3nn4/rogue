@@ -1,11 +1,15 @@
 NAME = rogue
 
 SRC = 	src/main.c \
-		src/creation/* 
+		src/creation/rogue.c \
+		src/creation/renderer.c \
+		src/creation/window.c \
+		src/creation/background.c \
+		src/event/event.c
 		
 LDFLAGS=-lSDL2
 
-HEADER = -Iinclude/
+HEADER = -Iinclude/ 
 
 OBJDIR = build
 
