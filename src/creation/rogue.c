@@ -25,6 +25,7 @@ s_SDL *createSSDL()
 	creationWin(data);
 	creationRenderer(data);
 	creationPerso(data);
+	//createAnim(data);
 	data->bg_load = NULL;
     data->bg_texture = NULL;
     data->wall_load = NULL;

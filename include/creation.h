@@ -2,6 +2,8 @@
 #define __CREATION_H__
 #include <SDL2/SDL.h>
 
+#include "animation.h"
+
 #define WINDOW_W 1280
 #define WINDOW_H 720
 #define ROOM_W 1024
@@ -10,15 +12,14 @@
 #define ROOM_Y 110
 #define TILE_w 32
 
-#define LINK_FRONT "img/link_front.bmp"
-#define LINK_BACK "img/link_back.bmp"
-#define LINK_RIGHT "img/link_right.bmp"
-#define LINK_LEFT "img/link_left.bmp"
+#define WALL_TILE "img/grass_wall.bmp"
+#define BG_TILE "img/grass_floor.bmp"
 
 typedef struct 	t_perso {
 	SDL_Surface* load;
     SDL_Texture* texture;
     char *tile_name;
+   // s_anim *anim;
     int x;
     int y;
     int health;
@@ -33,6 +34,7 @@ typedef struct 	t_SDL {
     SDL_Surface* wall_load;
     SDL_Texture* wall_texture;
     s_perso *perso;
+    //s_perso *mob;
 }				s_SDL;
 
 void rogue();

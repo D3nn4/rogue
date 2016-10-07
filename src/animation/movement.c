@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "creation.h"
+#include "animation.h"
 
 void persoGoLeft(s_SDL *data)
 {
@@ -10,6 +11,8 @@ void persoGoLeft(s_SDL *data)
 	//si pas de mur
 	if(data->perso->x - 1 > left)
 		data->perso->x -= 1;
+	data->perso->tile_name = LINK_LEFT;
+
 	//si enemi
 	//attaquer
 }
@@ -20,6 +23,7 @@ void persoGoRight(s_SDL *data)
 	//si pas de mur
 	if(data->perso->x + 1 + TILE_w < right)
 		data->perso->x += 1;
+	data->perso->tile_name = LINK_RIGHT;
 	//si enemi
 	//attaquer
 }
@@ -30,6 +34,7 @@ void persoGoUp(s_SDL *data)
 	//si pas de mur
 	if(data->perso->y - 1 > top)
 		data->perso->y -= 1;
+	data->perso->tile_name = LINK_BACK;
 	//si enemi
 	//attaquer
 }
@@ -40,6 +45,7 @@ void persoGoDown(s_SDL *data)
 	//si pas de mur
 	if (data->perso->y + 1 + TILE_w < bottom)
 		data->perso->y += 1;
+	data->perso->tile_name = LINK_FRONT;
 	//si enemi
 	//attaquer
 }
