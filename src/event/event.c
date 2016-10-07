@@ -13,4 +13,5 @@ void manageEvent(SDL_Event *event, s_SDL *data)
     	 		exit(0);
     		}
 	   	}
+	generateRenderer(data);
 }

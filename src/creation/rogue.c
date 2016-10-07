@@ -7,8 +7,11 @@
 #include "event.h"
 void exitAll (s_SDL *data)
 {
-	SDL_DestroyWindow(data->window);
+	SDL_DestroyTexture(data->bg_texture);
+	SDL_FreeSurface(data->bg_load);
 	SDL_DestroyRenderer(data->renderer);
+	SDL_DestroyWindow(data->window);
+	
 	SDL_Quit();
 }
 s_SDL *createSSDL()
@@ -20,10 +23,11 @@ s_SDL *createSSDL()
 	}
 	creationWin(data);
 	creationRenderer(data);
-	data->perso_load = NULL;
-    data->perso_texture = NULL;
-    data->bg_load = NULL;
+	data->bg_load = NULL;
     data->bg_texture = NULL;
+    data->wall_load = NULL;
+    data->wall_texture = NULL;
+    data->perso = NULL;
     return data;
 }
 
@@ -35,10 +39,7 @@ void rogue()
     }
     s_SDL *SDL_data = createSSDL();
     SDL_Event event;
-    SDL_RenderClear(SDL_data->renderer);
-   	createBg(SDL_data);
-   	//createPerso(SDL_data);
-   	SDL_RenderPresent(SDL_data->renderer);
+    generateRenderer(SDL_data);
     while (true)
     	manageEvent(&event, SDL_data);	
 	exitAll(SDL_data);	

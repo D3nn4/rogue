@@ -10,6 +10,6 @@ void creationWin(s_SDL *data)
         							SDL_WINDOWPOS_UNDEFINED, 1280, 720, SDL_WINDOW_SHOWN);	
     if( !data->window ) {
 	 	fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
-		exit(0);
+		exitAll(data);
     }
 }
