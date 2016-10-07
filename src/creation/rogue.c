@@ -7,13 +7,16 @@
 #include "event.h"
 void exitAll (s_SDL *data)
 {
-	SDL_DestroyTexture(data->bg_texture);
-	SDL_FreeSurface(data->bg_load);
+	SDL_DestroyTexture(data->floor->texture);
+	SDL_DestroyTexture(data->wall->texture);
+	SDL_FreeSurface(data->floor->load);
+	SDL_FreeSurface(data->wall->load);
 	SDL_DestroyRenderer(data->renderer);
 	SDL_DestroyWindow(data->window);
-	freeAll(&data);
+	//freeAll(&data);
 	
 	SDL_Quit();
+	exit(0);
 }
 s_SDL *createSSDL()
 {
@@ -24,26 +27,25 @@ s_SDL *createSSDL()
 	}
 	creationWin(data);
 	creationRenderer(data);
+	createMap(data);
 	creationPerso(data);
+	creationMob(data);
 	//createAnim(data);
-	data->bg_load = NULL;
-    data->bg_texture = NULL;
-    data->wall_load = NULL;
-    data->wall_texture = NULL;
-    return data;
+	
+	return data;
 }
 
 void generateAll(s_SDL *data)
 {
 	SDL_RenderClear(data->renderer);
-   	generateBg(data);
-   	generateWall(data);
-   	generatePerso(data);
+   	generateMap(data);
+   	generatePerso(data, data->perso);
+   	generatePerso(data, data->mob);
    	SDL_RenderPresent(data->renderer);
 }
 
 void rogue()
-{
+{	
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) != 0 ){
         fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
         return;

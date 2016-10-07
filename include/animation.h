@@ -1,12 +1,13 @@
 #ifndef __ANIMATION_H__
 #define __ANIMATION_H__
 
-#include "creation.h"
 
 #define LINK_FRONT "img/link_front.bmp"
 #define LINK_BACK "img/link_back.bmp"
 #define LINK_RIGHT "img/link_right.bmp"
 #define LINK_LEFT "img/link_left.bmp"
+
+#define MOB "img/mob1.bmp"
 /*
 typedef struct 	t_anim {
 	struct 	t_anim *first_frame;

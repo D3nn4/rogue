@@ -4,9 +4,9 @@ SRC = 	src/main.c \
 		src/creation/rogue.c \
 		src/creation/renderer.c \
 		src/creation/window.c \
-		src/creation/background.c \
-		src/creation/wall.c \
+		src/creation/map.c \
 		src/creation/perso.c \
+		src/creation/mob.c \
 		src/creation/free.c \
 		src/event/keyboard.c \
 		src/event/event.c \

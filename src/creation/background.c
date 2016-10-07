@@ -27,7 +27,6 @@ void generateBg(s_SDL *data)
 	int tile_y = ROOM_Y;
 	int x = 0;
 	int y = 0;
-	getFloorTile(data);
 	for (y = 0; y < nb_tile_h; ++y)	{
 		for (x = 0; x < nb_tile_w; ++x) {
 			tile_x = ROOM_X + (x * TILE_w);
