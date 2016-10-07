@@ -11,6 +11,7 @@ void exitAll (s_SDL *data)
 	SDL_FreeSurface(data->bg_load);
 	SDL_DestroyRenderer(data->renderer);
 	SDL_DestroyWindow(data->window);
+	freeAll(&data);
 	
 	SDL_Quit();
 }
@@ -23,12 +24,21 @@ s_SDL *createSSDL()
 	}
 	creationWin(data);
 	creationRenderer(data);
+	creationPerso(data);
 	data->bg_load = NULL;
     data->bg_texture = NULL;
     data->wall_load = NULL;
     data->wall_texture = NULL;
-    data->perso = NULL;
     return data;
+}
+
+void generateAll(s_SDL *data)
+{
+	SDL_RenderClear(data->renderer);
+   	generateBg(data);
+   	generateWall(data);
+   	generatePerso(data);
+   	SDL_RenderPresent(data->renderer);
 }
 
 void rogue()
@@ -39,7 +49,7 @@ void rogue()
     }
     s_SDL *SDL_data = createSSDL();
     SDL_Event event;
-    generateRenderer(SDL_data);
+    generateAll(SDL_data);
     while (true)
     	manageEvent(&event, SDL_data);	
 	exitAll(SDL_data);	

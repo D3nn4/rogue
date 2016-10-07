@@ -13,12 +13,3 @@ void creationRenderer(s_SDL *data)
 	}
 
 }
-
-void generateRenderer(s_SDL *data)
-{
-	SDL_RenderClear(data->renderer);
-   	generateBg(data);
-   	generateWall(data);
-   	//generatePerso(data);
-   	SDL_RenderPresent(data->renderer);
-}

@@ -6,6 +6,8 @@ SRC = 	src/main.c \
 		src/creation/window.c \
 		src/creation/background.c \
 		src/creation/wall.c \
+		src/creation/perso.c \
+		src/creation/free.c \
 		src/event/event.c
 		
 LDFLAGS=-lSDL2

@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "creation.h"
+
 void getWallTile (s_SDL *data)
 {
 	data->wall_load = SDL_LoadBMP("img/stone_wall.bmp");
